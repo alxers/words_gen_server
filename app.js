@@ -1,10 +1,14 @@
 'use strict';
 
-let koa = require('koa');
-let app = koa();
+const koa = require('koa');
+const route = require('koa-route');
 
-app.use(function *() {
-  this.body = 'test';
-});
+const app = koa();
+
+app.use(route.get('/', index));
+
+function* index() {
+  this.body = "<h1>test</h1>";
+}
 
 app.listen(3000);
