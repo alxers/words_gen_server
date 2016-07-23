@@ -6,8 +6,6 @@ const logger = require('koa-logger');
 
 const app = koa();
 
-let db = ['hello'];
-
 const routes = require('./routes.js');
 
 app.use(logger());

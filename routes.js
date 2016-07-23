@@ -12,5 +12,5 @@ const words = wrap(db.get('words'));
 // Route defenitions
 
 module.exports.index = function* index() {
-  this.body = yield render('index', { posts: db });
+  this.body = yield render('index', { words: db });
 }
