@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}Words{% endblock %}
+
+{% block content %}
+  <p><a href="/words/new">Create new</a></p>
+  <ul>
+    {% for word in words %}
+      <li>
+        <h2>{{ word }}</h2>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

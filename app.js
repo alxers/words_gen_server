@@ -9,6 +9,6 @@ const app = koa();
 const routes = require('./routes.js');
 
 app.use(logger());
-app.use(route.get('/', routes.index));
+app.use(route.get('/', routes.list));
 
 app.listen(3000);
