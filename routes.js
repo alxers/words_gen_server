@@ -15,3 +15,15 @@ module.exports.list = function *list() {
   let wordsList = yield words.find({});
   this.body = yield render('list', { words: wordsList });
 }
+
+module.exports.add = function *add() {
+  this.body = yield render('new');
+}
+
+module.exports.create = function *create() {
+  let word = yield parse(this);
+  word.created_at = new Date;
+
+  yield words.insert(word);
+  this.redirect('/');
+}
