@@ -27,3 +27,8 @@ module.exports.create = function *create() {
   yield words.insert(word);
   this.redirect('/');
 }
+
+module.exports.edit = function *edit(id) {
+  let word = yield words.findOne({_id: id});
+  this.body = yield render('edit', { word: word });
+}
