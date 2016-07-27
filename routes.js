@@ -32,3 +32,9 @@ module.exports.edit = function *edit(id) {
   let word = yield words.findOne({_id: id});
   this.body = yield render('edit', { word: word });
 }
+
+module.exports.update = function *update(id) {
+  let word = yield parse(this);
+  yield words.updateById(id, word);
+  this.redirect('/');
+}
