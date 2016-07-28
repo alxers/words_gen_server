@@ -14,11 +14,11 @@ const words = wrap(db.get('words'));
 module.exports.list = function *list() {
   let wordsList = yield words.find({});
   this.body = yield render('list', { words: wordsList });
-}
+};
 
 module.exports.add = function *add() {
   this.body = yield render('new');
-}
+};
 
 module.exports.create = function *create() {
   let word = yield parse(this);
@@ -26,15 +26,20 @@ module.exports.create = function *create() {
 
   yield words.insert(word);
   this.redirect('/');
-}
+};
 
 module.exports.edit = function *edit(id) {
   let word = yield words.findOne({_id: id});
   this.body = yield render('edit', { word: word });
-}
+};
 
 module.exports.update = function *update(id) {
   let word = yield parse(this);
   yield words.updateById(id, word);
+  this.redirect('/');
+};
+
+module.exports.remove = function *remove(id) {
+  yield words.remove({_id: id});
   this.redirect('/');
 }
