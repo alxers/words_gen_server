@@ -1,5 +1,6 @@
 'use strict';
 
+// Move to sqlite https://www.npmjs.com/package/co-sqlite3
 const koa = require('koa');
 const route = require('koa-route');
 const logger = require('koa-logger');
